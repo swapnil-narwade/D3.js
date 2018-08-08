@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <title>This is D3.js</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<p id="hello">This is where we are going to execute the D3 project</p>
+<p class="hello">hello class</p>
+<script>
+    d3.select("#hello")
+        .append("p.class")
+        .text("hi");
+    let canvas = d3.select("body")
+        .append("svg")
+        .attr("width",500)
+        .attr("height", 500);
+
+    // let cicle = canvas.append("circle")
+    // .attr("cx", 200)
+    // .attr("cy", 200)
+    // .attr("r", 200)
+    // .attr("fill", "red");
+
+    // let rect = canvas.append("rect")
+    //     .attr("height", 100)
+    //     .attr("width",100)
+    //     .attr("fill", "blue");
+    let dataArray =[10,15,200,25,30];
+    let bars = canvas.selectAll("rect")
+        .data(dataArray)
+        .enter()
+            .append("rect")
+            .attr("width",50)
+            .attr("height", (d)=>d)
+            .attr("x",(d,i)=> i*60)
+
+
+</script>
+</body>
+</html>
